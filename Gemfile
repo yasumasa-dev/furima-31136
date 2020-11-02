@@ -52,3 +52,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :development do 
+  gem 'rubocop', require: false
+  #Rubocop（ルボコップ）はRubyの静的コード解析ツールです。
+  #「インデントが揃っていない」「余分な改行・スペースがある」などの指摘
+end
