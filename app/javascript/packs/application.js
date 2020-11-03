@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+//require("turbolinks").start() 画面遷移を高速化するGem,HTML要素だけを読み取って表示するため、JavaScriptファイルが読み込まれず
 require("@rails/activestorage").start()
 require("channels")
 
