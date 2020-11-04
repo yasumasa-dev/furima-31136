@@ -58,3 +58,5 @@ group :development do
   #Rubocop（ルボコップ）はRubyの静的コード解析ツールです。
   #「インデントが揃っていない」「余分な改行・スペースがある」などの指摘
 end
+
+gem 'devise'
