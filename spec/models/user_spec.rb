@@ -90,6 +90,11 @@ describe 'ユーザー新規登録' do
       @user.valid?
       expect(@user.errors.full_messages).to include("Last name kana Full-width katakana characters")
     end
+    it "emailに@がないと登録できない" do
+      @user.email = "abcgmail.com"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Email is invalid")
+    end
   end
 
   context '新規登録がうまくいくとき' do
