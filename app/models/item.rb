@@ -8,7 +8,18 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one_attached :image
-  validates :title, :explanation, :price, presence: true
 
-  validates :category_id, :condition_id, :delivery_fee_id, :shipment_source_id, :shipment_date_id, numericality: { other_than: 1 } 
+  validates :title, :explanation, :image, presence: true
+
+  validates :category_id, :condition_id, :delivery_fee_id, :shipment_source_id, :shipment_date_id, numericality: { other_than: 1, message: 'Select' } 
+
+  with_options numericality: true, format: { with: /\A[0-9]+\z/, message: 'Half-width number' } do
+    validates :price
+  end
+
+  validates :price, numericality: {
+             greater_than_or_equal_to: 300,
+             less_than_or_equal_to: 9999999,
+             message: 'Out of setting range' 
+  }
 end
