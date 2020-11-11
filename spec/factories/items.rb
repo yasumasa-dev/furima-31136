@@ -2,13 +2,12 @@ FactoryBot.define do
   factory :item do
     title                {Faker::Lorem.sentence}
     explanation          {Faker::Lorem.sentence}
-    price                {"1000"}
-    category_id          {"メンズ"}
-    condition_id         {"新品、未使用"}
-    delivery_fee_id      {"着払い(購入者負担)"}
-    shipment_source_id   {"東京都"}
-    shipment_date_id     {"1~2日で発送"}
-    image                {"test_image.png"}
+    price                {2}
+    category_id          {2}
+    condition_id         {2}
+    delivery_fee_id      {2}
+    shipment_source_id   {2}
+    shipment_date_id     {2}
     association :user
 
     after(:build) do |item|

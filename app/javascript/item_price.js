@@ -3,7 +3,6 @@ window.addEventListener('load', () => {
 const priceInput = document.getElementById("item-price");
 priceInput.addEventListener("input", () => {
   const inputValue = priceInput.value;
-// console.log(inputValue);
 
 var tax = 0.1;
 var price = inputValue

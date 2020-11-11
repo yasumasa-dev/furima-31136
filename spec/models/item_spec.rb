@@ -23,32 +23,32 @@ describe '商品出品機能' do
       expect(@item.errors.full_messages).to include("Image can't be blank")    
     end
     it "priceが空だと登録できない" do
-      @item.price = ""
+      @item.price = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is not a number")    
     end
     it "category_idが選択されていないと登録できない" do
-      @item.category_id = "---"
+      @item.category_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Category Select")    
     end
     it "condition_idが選択されていないと登録できない" do
-      @item.condition_id = "---"
+      @item.condition_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Condition Select")    
     end
     it "delivery_fee_idが選択されていないと登録できない" do
-      @item.delivery_fee_id = "---"
+      @item.delivery_fee_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Delivery fee Select")    
     end
     it "shipment_sourceが選択されていないと登録できない" do
-      @item.shipment_source_id = "---"
+      @item.shipment_source_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Shipment source Select")    
     end
     it "shipment_dateが選択されていないと登録できない" do
-      @item.shipment_date_id = "---"
+      @item.shipment_date_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Shipment date Select")    
     end
