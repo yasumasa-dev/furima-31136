@@ -19,6 +19,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item = Item.includes(:user).find(params[:id])
+  end
+
   private
   def items_params
     params.require(:item).permit(:title,
