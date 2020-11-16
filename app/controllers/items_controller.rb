@@ -23,6 +23,22 @@ class ItemsController < ApplicationController
     @item = Item.includes(:user).find(params[:id])
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    unless current_user == @item.user
+      redirect_to root_path
+    end
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(items_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
+  end
+
   private
   def items_params
     params.require(:item).permit(:title,
