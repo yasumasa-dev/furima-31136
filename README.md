@@ -72,7 +72,7 @@ Things you may want to cover:
 - belongs_to :purchase
 
 
-## purchases テーブル
+## order テーブル
 | Column | Type       | Options                        |
 |--------|------------|--------------------------------|
 | item   | references | null: false, foreign_key: true |
