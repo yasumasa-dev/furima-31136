@@ -1,8 +1,10 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+
   def index
     @order_address = OrderAddress.new
     @item = Item.find(params[:item_id])
-    unless current_user.id != @item.user_id
+    unless current_user.id != @item.user_id || @order.item_id == @order.item_id
       redirect_to root_path
     end
   end
@@ -17,7 +19,7 @@ class OrdersController < ApplicationController
      if @order_address.valid?
        pay_item
        @order_address.save
-       redirect_to root_path
+       redirect_to root_path 
      else
        render action: :index
      end
