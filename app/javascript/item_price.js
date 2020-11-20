@@ -13,5 +13,5 @@ addTaxDom.innerHTML = result;
 var gain = (inputValue - result)
 const profitDom = document.getElementById("profit");
 profitDom.innerHTML = gain;
-})
+});
 });
