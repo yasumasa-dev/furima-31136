@@ -10,17 +10,17 @@ class OrderAddress
     validates :token
   end
 
-  validates :prefecture_id, numericality: { other_than: 1, message: "Select" }
+  validates :prefecture_id, numericality: { other_than: 0, message: "Select" }
   validates :phone_number, numericality: { with: /\A[0-9]+\z/, message: 'Half-width number'}
 
   def save
+    order = Order.create(item_id: item_id, user_id: user_id)
     Address.create(  postal_code: postal_code,
                    prefecture_id: prefecture_id,
                             city: city,
+                         address: address,
                     phone_number: phone_number,
                         building: building,
                         order_id: order.id)
-    Order.create(item_id: item.id, 
-                 user_id: user.id)
   end
 end
